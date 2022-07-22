@@ -1,0 +1,34 @@
+.weather {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+
+    img {
+        width: 150px;
+        height: auto;
+        opacity: 0;
+        animation: sun-glow 5s forwards infinite;
+    }
+
+    span {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-75%);
+        right: 0;
+    }
+}
+
+@keyframes sun-glow {
+    0% {
+        opacity: 40%;
+        transform: scale(60%);
+    }
+    50% {
+        opacity: 95%;
+        transform: scale(100%);
+    }
+    100% {
+        opacity: 40%;
+        transform: scale(60%);
+    }
+}
