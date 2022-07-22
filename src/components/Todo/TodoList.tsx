@@ -38,7 +38,7 @@ export const TodoList = () : ReactElement => {
             </div>
             
             <div className="todo--content">
-                <TransitionGroup component="ul">
+                <TransitionGroup component="div">
                     {todos.map((todo) => (
                         <CSSTransition key={todo.id} timeout={500} classNames="todoAnim">
                             <Todo key={todo.id} id={todo.id} title={todo.title} onDelete={handleDelete} />

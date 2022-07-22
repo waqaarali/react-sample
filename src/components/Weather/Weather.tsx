@@ -15,7 +15,7 @@ const Weather = () => {
 
     return (
         <div className="weather">
-            <img src='https://www.freeiconspng.com/thumbs/sun/natural-energy-source-the-sun-transparent-photos-3.png' />
+            <img src='https://www.freeiconspng.com/thumbs/sun/natural-energy-source-the-sun-transparent-photos-3.png' alt="Sun" />
             <span>{weather}°C</span>
         </div>
     );
