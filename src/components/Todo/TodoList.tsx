@@ -11,21 +11,21 @@ interface TodoInterface {
 }
 
 export const TodoList = () : ReactElement => {
-    const [todos, setTodo] = useState<TodoInterface[]>([]);
+    const todoRef = useRef<HTMLInputElement>({} as HTMLInputElement); // Initialise ref for our input
 
-    const todoRef = useRef<HTMLInputElement>({} as HTMLInputElement);
-    const [todoTitle, setTodoTitle] = useState<string>('');
+    const [todos, setTodo] = useState<TodoInterface[]>([]); // Initialise state for all todos using interface of Todo
+    const [todoTitle, setTodoTitle] = useState<string>(''); // Our todo's main text (title) will be in a state
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setTodoTitle(e.target.value);
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setTodoTitle(e.target.value); // Update title when a user enters text
 
     const handleClick = () : void => {
+        // Handle the click, add a new todo with the ID of date.now() just for testing, as well as a title
         const newTodo: TodoInterface = { id: Date.now(), title: todoTitle };
-        setTodo((prevTodos) => (prevTodos.concat(newTodo)));
+        setTodo((prevTodos) => (prevTodos.concat(newTodo))); // Concat previous todos and add on new todo (could also use .push)
     };
 
-    const handleDelete = (id: number) : void => {
-        setTodo((prevTodos) => (prevTodos.filter((todo: TodoInterface) => todo.id !== id)));
-    }
+    // Delete todo (as it gets triggered from our prop) by using filtering technique (ES5 syntax)
+    const handleDelete = (id: number) : void => setTodo((prevTodos) => (prevTodos.filter((todo: TodoInterface) => todo.id !== id)));
 
     return (
         <div className="todo--list">
